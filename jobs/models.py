@@ -8,4 +8,4 @@ class Job(models.Model):
     requirements = models.TextField()
     
     def __str__(self):
-        return f"${self.position} position at ${self.company}"
+        return f"{self.position} at {self.company}"
