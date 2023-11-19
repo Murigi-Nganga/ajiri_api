@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +44,8 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'applicants',
-    'jobs'
+    'jobs',
+    'job_applications',
 ]
 
 MIDDLEWARE = [
@@ -83,10 +87,10 @@ DATABASES = {
     'default': {
         # PostgreSQL DB Configuration
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DBNAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST')
+        'NAME': 'ajiri',
+        'USER': os.getenv('DBUSER'),
+        'PASSWORD': os.getenv('DBPASSWORD'),
+        'HOST': 'localhost'
     }
 }
 
