@@ -8,7 +8,7 @@ An API that keeps track of different job opportunities and applicants
 
 Ensure you have the following installed:
 
-- Python 3- [Python](https://www.python.org/downloads/) (version 3.6 or higher)
+- [Python](https://www.python.org/downloads/) (version 3.6 or higher)
 - [pip](https://pip.pypa.io/en/stable/installation/) (Python package installer)
 - PostgreSQL Database (and optionally, PgAdmin)
 
@@ -114,11 +114,11 @@ The following resource contains a published collection of the API Endpoints for 
 
     When creating an applicant, ensure you use **form-data** because you will be making a multi-part request
 
-    [Create applicant](screenshots/create-applicant.png)
+    ![Create applicant](screenshots/create-applicant.png)
 
     The uploaded file is stored in the media folder in your project's directory, specifically in ```media/applicant_resumes``` directory
 
-    [Resume storage](screenshots/resume-storage.png)
+    ![Resume storage](screenshots/resume-storage.png)
 
     The files are stored in the mentioned directory while their paths are stored in the database
 
