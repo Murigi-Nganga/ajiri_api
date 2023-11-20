@@ -23,15 +23,15 @@ class ApplicantJobApplicationListView(generics.ListAPIView):
         queryset = JobApplication.objects.filter(applicant_id=applicant_id)
         return queryset
     
-# class CompanyJobApplicationListView(generics.ListAPIView):
-#     serializer_class = JobApplicationListViewSerializer
+class CompanyJobApplicationListView(generics.ListAPIView):
+    serializer_class = JobApplicationListViewSerializer
 
-#     def get_queryset(self):
-#         company_id = self.kwargs['company_name']
+    def get_queryset(self):
+        company_id = self.kwargs['company_id']
         
-#         # Filter job applications for the applicant
-#         queryset = JobApplication.objects.filter(job_company_id=company_id)
-#         return queryset
+        # Filter job applications for the applicant
+        queryset = JobApplication.objects.filter(job__company__id=company_id)
+        return queryset
     
          
 class JobApplicationCreateView(generics.CreateAPIView):
