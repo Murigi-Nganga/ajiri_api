@@ -7,7 +7,7 @@ class JobApplicationListViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobApplication
         fields = '__all__'
-        depth = 1
+        depth = 2
         
 class JobApplicationCreateViewSerializer(serializers.ModelSerializer):
     

@@ -1,9 +1,11 @@
 from django.db import models
 
+from companies.models import Company
+
 # Create your models here.
 class Job(models.Model):
     position = models.CharField(max_length=100)
-    company = models.CharField(max_length=50)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
     description = models.TextField()
     requirements = models.TextField()
     

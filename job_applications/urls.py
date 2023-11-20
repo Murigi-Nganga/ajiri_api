@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import ApplicantJobApplicationListView, CompanyJobApplicationListView, JobApplicationCreateView, JobApplicationListView, JobApplicationUpdateView
+from .views import ApplicantJobApplicationListView, JobApplicationCreateView, JobApplicationListView, JobApplicationUpdateView
 
 urlpatterns = [
     path('', JobApplicationListView.as_view(), name="job-application-list"),
