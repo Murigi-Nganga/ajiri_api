@@ -10,14 +10,14 @@ class JobListCreateView(generics.ListCreateAPIView):
     serializer_class = JobSerializer
     
     def create(self, request, *args, **kwargs):
-        # List of jobs
+        # Adding a list of jobs
         if isinstance(request.data, list):
             serializer = self.get_serializer(data=request.data, many=True)
             serializer.is_valid(raise_exception=True)
             self.perform_create(serializer)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
-        # Single job
+        # Adding a single job
         else:
             return super().create(request, *args, **kwargs)
         

@@ -2,12 +2,18 @@ from rest_framework import serializers
 
 from .models import JobApplication
 
-class JobApplicationListCreateViewSerializer(serializers.ModelSerializer):
+class JobApplicationListViewSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = JobApplication
         fields = '__all__'
-        depth = 2
+        depth = 1
+        
+class JobApplicationCreateViewSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = JobApplication
+        fields = '__all__'
         read_only_fields = ['status']
         
 class JobApplicationUpdateViewSerializer(serializers.ModelSerializer):

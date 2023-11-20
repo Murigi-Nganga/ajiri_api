@@ -1,14 +1,21 @@
 from rest_framework import generics
 from job_applications.mixins import PartialUpdateMixin
 
-from job_applications.serializers import JobApplicationListCreateViewSerializer, JobApplicationUpdateViewSerializer
+from job_applications.serializers import (JobApplicationCreateViewSerializer, 
+                                          JobApplicationListViewSerializer, 
+                                          JobApplicationUpdateViewSerializer)
 
 from .models import JobApplication
 
 # Create your views here.
-class JobApplicationListCreateView(generics.ListCreateAPIView):
+class JobApplicationListView(generics.ListAPIView):
     queryset = JobApplication.objects.all()
-    serializer_class = JobApplicationListCreateViewSerializer
+    serializer_class = JobApplicationListViewSerializer
+    
+         
+class JobApplicationCreateView(generics.CreateAPIView):
+    queryset = JobApplication.objects.all()
+    serializer_class = JobApplicationCreateViewSerializer
     
     def perform_create(self, serializer):
         # Set the status to 'Applied' before saving the instance
