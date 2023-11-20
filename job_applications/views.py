@@ -12,6 +12,27 @@ class JobApplicationListView(generics.ListAPIView):
     queryset = JobApplication.objects.all()
     serializer_class = JobApplicationListViewSerializer
     
+class ApplicantJobApplicationListView(generics.ListAPIView):
+    serializer_class = JobApplicationListViewSerializer
+
+    def get_queryset(self):
+        applicant_id = self.kwargs['applicant_id']
+        print(applicant_id)
+        
+        # Filter job applications for the applicant
+        queryset = JobApplication.objects.filter(applicant_id=applicant_id)
+        return queryset
+    
+# class CompanyJobApplicationListView(generics.ListAPIView):
+#     serializer_class = JobApplicationListViewSerializer
+
+#     def get_queryset(self):
+#         company_id = self.kwargs['company_name']
+        
+#         # Filter job applications for the applicant
+#         queryset = JobApplication.objects.filter(job_company_id=company_id)
+#         return queryset
+    
          
 class JobApplicationCreateView(generics.CreateAPIView):
     queryset = JobApplication.objects.all()
