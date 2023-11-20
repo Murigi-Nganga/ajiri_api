@@ -130,3 +130,5 @@ dmypy.json
 
 # Media folder where files are uploaded
 media
+
+test_resume
